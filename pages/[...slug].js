@@ -1,16 +1,9 @@
 import { gql } from "@apollo/client";
 import client from "../client";
-import { BlockRenderer } from "./components/BlockRenderer";
 import { getPageStaticProps } from "utils/getPageStaticProps";
+import { Page } from "./components/Page";
 
-export default function Page(props) {
-  console.log("PAGE PROPS: ", props);
-  return (
-    <div>
-      <BlockRenderer blocks={props.blocks} />
-    </div>
-  );
-}
+export default Page;
 
 export const getStaticProps = getPageStaticProps;
 
