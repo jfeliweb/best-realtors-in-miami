@@ -1,3 +1,18 @@
-export const CallToActionButton = () => {
-  return <div>Call To Action Button</div>;
+import { ButtonLink } from "../ButtonLink";
+
+export const CallToActionButton = ({
+  buttonLabel,
+  destination,
+  align = "left",
+}) => {
+  const alignMap = {
+    left: "text-left",
+    center: "text-center",
+    right: "text-right",
+  };
+  return (
+    <div className={alignMap[align]}>
+      <ButtonLink destination={destination} label={buttonLabel} />
+    </div>
+  );
 };

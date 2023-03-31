@@ -2,6 +2,7 @@ import { Cover } from "../Cover/index";
 import { Heading } from "../Heading";
 import { Paragraph } from "../Paragraph";
 import { theme } from "theme";
+import { CallToActionButton } from "../CallToActionButton";
 
 export const BlockRenderer = ({ blocks }) => {
   return blocks.map((block) => {
@@ -37,7 +38,21 @@ export const BlockRenderer = ({ blocks }) => {
           />
         );
       }
+      case "acf/ctabutton": {
+        return (
+          <CallToActionButton
+            key={block.id}
+            buttonLabel={block.attributes.data.label}
+            destination={block.attributes.data.destination || "/"}
+            align={block.attributes.data.align}
+          />
+        );
+      }
       default:
+        {
+          console.log("UNKNOW: ", block);
+          return null;
+        }
         return null;
     }
   });
