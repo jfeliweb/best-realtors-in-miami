@@ -1,6 +1,7 @@
 import { Cover } from "../Cover/index";
 import { Heading } from "../Heading";
 import { Paragraph } from "../Paragraph";
+import { Columns } from "../Columns";
 import { theme } from "theme";
 import { CallToActionButton } from "../CallToActionButton";
 
@@ -36,6 +37,16 @@ export const BlockRenderer = ({ blocks }) => {
               block.attributes.style?.color?.text
             }
           />
+        );
+      }
+      case "core/columns": {
+        return (
+          <Columns
+            key={block.id}
+            isStackedOnMobile={block.attributes.isStackedOnMobile}
+          >
+            <BlockRenderer blocks={block.innerBlocks} />
+          </Columns>
         );
       }
       case "acf/ctabutton": {
